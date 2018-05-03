@@ -10,5 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "net-ping": "^1.2.1"
   }
 }

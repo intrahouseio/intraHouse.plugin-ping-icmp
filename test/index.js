@@ -6,7 +6,7 @@ const unitid = 'plugin_pinger'
 const plugin = { debug: 'on' };
 const system = { port: 4001 };
 
-const config = [];
+const config = [{"id":"ping_127.0.0.1","unit":"pinger","chan":"DI_1","desc":"DI","ip":"8.8.8.8","interval":5,"lost":1,"dn":"SENSOR1","dn_prop":""}];
 
 const ps = child.fork(modulepath, [unitid]);
 
@@ -20,7 +20,7 @@ ps.on('message', data => {
   }
 
   if (data.type === 'get' && data.tablename === `config/${unitid}`) {
-    ps.send({ type: 'get', config: {} });
+    ps.send({ type: 'get', config });
   }
 
   if (data.type === 'data') {

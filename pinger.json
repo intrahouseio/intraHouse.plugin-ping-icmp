@@ -2,17 +2,29 @@
   "id": "pinger",
   "description": "Pinger",
   "gendevices": 0,
-  "single":1,
-  "service": 1,
+  "single":0,
+  "service": 0,
+  "restartOnChannelsChange":1,
   "module": "index.js",
-  "params": [
-    {
-      "name": "lkey",
-      "note": "License key",
-      "type": "string",
-      "val": ""
-    }
+  "params": [],
+  "chpattern": [
+    { "name": "ip", "note": "IP-адрес", "type": "string"},
+    { "name": "interval", "note": "Интервал, сек", "type": "number"},
+    { "name": "lost", "note": "Потерь, кол-во", "type": "number"}
   ],
-  "genrules": {},
+  "chdefault": {
+    "chan": "DI_1",
+    "desc": "DI",
+    "ip": "127.0.0.1",
+    "interval": 15,
+    "lost": 0,
+    "dn":""
+  },
+  "genrules": {
+    "DI": {
+      "type": "100",
+      "cl": "SensorD"
+    }
+  },
   "commands": []
 }
