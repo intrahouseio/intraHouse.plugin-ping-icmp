@@ -1,0 +1,18 @@
+{
+  "id": "pinger",
+  "description": "Pinger",
+  "gendevices": 0,
+  "single":1,
+  "service": 1,
+  "module": "index.js",
+  "params": [
+    {
+      "name": "lkey",
+      "note": "License key",
+      "type": "string",
+      "val": ""
+    }
+  ],
+  "genrules": {},
+  "commands": []
+}
