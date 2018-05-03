@@ -18,20 +18,20 @@ plugin.on('channels', channels => {
 });
 
 plugin.on('debug', mode => {
-  debug = mode;
+  debug = mode
 });
 
 function check(ip) {
   if (DATA[ip].error > DATA[ip].lost) {
-    plugin.debug(`ping_${ip} -> offline!`);
+    debug && plugin.debug(`ping_${ip} -> offline!`);
     plugin.setChannelsData([{ id: `ping_${ip}`, value: 0, ext: {} }]);
 
     DATA[ip].error = 0;
   } else {
     if (DATA[ip].error === 0) {
-      plugin.debug(`ping_${ip} -> online!`);
+      debug && plugin.debug(`ping_${ip} -> online!`);
       plugin.setChannelsData([{ id: `ping_${ip}`, value: 1, ext: {} }]);
-      
+
       DATA[ip].error = 0;
     }
   }
@@ -58,10 +58,3 @@ function start(items) {
     createPinger(item.ip, item.interval, item.lost);
   });
 }
-
-
-/* --------------------------
-
-  plugin.setChannelsData([{ id: 'DI_1', value: 1, ext: {} }]);
-
-*/
