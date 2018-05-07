@@ -1,6 +1,6 @@
 {
-    "id":"pinger",
-    "description":"Pinger plugin",
+    "id":"ping",
+    "description":"Ping plugin",
     "activation": false,
     "resources": false,
     "cross": true,

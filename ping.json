@@ -1,6 +1,6 @@
 {
-  "id": "pinger",
-  "description": "Pinger",
+  "id": "ping",
+  "description": "Ping",
   "gendevices": 0,
   "single":0,
   "service": 0,

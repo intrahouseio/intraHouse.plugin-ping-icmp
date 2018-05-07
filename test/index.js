@@ -1,7 +1,7 @@
 const child = require('child_process');
 const modulepath = './index.js';
 
-const unitid = 'plugin_pinger'
+const unitid = 'plugin_ping'
 
 const plugin = { debug: 'on' };
 const system = { port: 4001 };
