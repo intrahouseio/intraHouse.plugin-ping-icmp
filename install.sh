@@ -1,1 +1,2 @@
-sudo apt-get install -y make build-essential
+apt-get install -y make build-essential
+yum install -y make build-essential
