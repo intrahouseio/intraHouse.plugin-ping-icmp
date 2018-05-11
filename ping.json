@@ -13,16 +13,15 @@
     { "name": "lost", "note": "Потерь, кол-во", "type": "number"}
   ],
   "chdefault": {
-    "chan": "DI_1",
-    "desc": "DI",
+    "chan": "ping_x",
+    "desc": "ping",
     "ip": "127.0.0.1",
     "interval": 15,
     "lost": 0,
     "dn":""
   },
   "genrules": {
-    "DI": {
-      "type": "100",
+    "ping": {
       "cl": "SensorD"
     }
   },
