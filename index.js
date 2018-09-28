@@ -28,7 +28,6 @@ function getIP(channel) {
   return new Promise(resolve => {
     dns.resolve4(channel.ip, (err, ip) => {
       if (err || ip.length === 0) {
-        channel.ip = null;
         resolve(channel)
       } else {
         channel.ip = ip[0];
@@ -40,8 +39,7 @@ function getIP(channel) {
 
 
 function getIPtoHost(channels) {
-  return Promise.all(channels.map(getIP))
-    .then(data => data.filter(item => item.ip !== null ));
+  return Promise.all(channels.map(getIP));
 }
 
 function check(ip, id) {
@@ -77,8 +75,9 @@ function createPinger(id, ip, interval, lost) {
 
 
 function start(items) {
-  plugin.debug("version: 0.0.2");
+  plugin.debug("version: 0.0.3");
   plugin.debug("start");
+  plugin.debug("hosts: " + items.length);
   items.forEach(item => {
     createPinger(item.id, item.ip, item.interval, item.lost);
   });
