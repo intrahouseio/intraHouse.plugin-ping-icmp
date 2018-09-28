@@ -6,7 +6,7 @@ const unitid = 'plugin_ping'
 const plugin = { debug: 'on' };
 const system = { port: 4001 };
 
-const config = [{"id":"ping_127.0.0.1","unit":"pinger","chan":"DI_1","desc":"DI","ip":"8.8.8.8","interval":5,"lost":1,"dn":"SENSOR1","dn_prop":""}];
+const config = [{"id":"ping_1","unit":"pinger","chan":"DI_1","desc":"DI","ip":"google.ru","interval":5,"lost":1,"dn":"SENSOR1","dn_prop":""}];
 
 const ps = child.fork(modulepath, [unitid]);
 

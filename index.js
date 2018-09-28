@@ -1,5 +1,7 @@
-const Plugin = require('./lib/plugin');
 const ping = require ("net-ping");
+const dns = require ("dns");
+
+const Plugin = require('./lib/plugin');
 
 const plugin = new Plugin();
 const session = ping.createSession();
@@ -14,12 +16,33 @@ plugin.on('params', params => {
 });
 
 plugin.on('channels', channels => {
-  start(channels);
+  getIPtoHost(channels)
+  .then(start)
 });
 
 plugin.on('debug', mode => {
   debug = mode
 });
+
+function getIP(channel) {
+  return new Promise(resolve => {
+    dns.resolve4(channel.ip, (err, ip) => {
+      if (err || ip.length === 0) {
+        channel.ip = null;
+        resolve(channel)
+      } else {
+        channel.ip = ip[0];
+        resolve(channel)
+      }
+    })
+  });
+}
+
+
+function getIPtoHost(channels) {
+  return Promise.all(channels.map(getIP))
+    .then(data => data.filter(item => item.ip !== null ));
+}
 
 function check(ip, id) {
   if (DATA[ip].error > DATA[ip].lost) {
@@ -54,6 +77,8 @@ function createPinger(id, ip, interval, lost) {
 
 
 function start(items) {
+  plugin.debug("version: 0.0.2");
+  plugin.debug("start");
   items.forEach(item => {
     createPinger(item.id, item.ip, item.interval, item.lost);
   });
