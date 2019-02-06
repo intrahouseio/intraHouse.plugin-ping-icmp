@@ -1,6 +1,6 @@
 {
   "name": "ping",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "",
   "private": true,
   "main": "index.js",
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "net-ping": "^1.2.1"
+    "net-ping": "^1.2.3"
   }
 }

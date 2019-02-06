@@ -75,7 +75,7 @@ function createPinger(id, ip, interval, lost) {
 
 
 function start(items) {
-  plugin.debug("version: 0.0.4");
+  plugin.debug("version: 0.0.5");
   plugin.debug("start");
   plugin.debug("hosts: " + items.length);
   items.forEach(item => {
