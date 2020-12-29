@@ -13,7 +13,7 @@
     { "name": "lost", "note": "$Lost", "type": "number"}
   ],
   "chdefault": {
-    "chan": "ping_x",
+    "chan": "ping_1",
     "desc": "ping",
     "ip": "127.0.0.1",
     "interval": 15,
